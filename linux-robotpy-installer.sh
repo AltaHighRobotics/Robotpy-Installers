@@ -8,6 +8,7 @@ apt install zenity                                              #A file selector
 
 zenity --info --text="PLEASE SELECT YOUR PROGRAMMING FOLDER"    #Brings up a UI that gives intruction
 UserDirectorySelection=$(zenity --file-selection --directory)   #Will direct the user to select a directory where their robotpy files are located, ONE FOR EACH REPOSITORY       # cd $UserDirectorySelection
+cd $UserDirectorySelection                                      #Puts user into the programming folder that they chose
 python3 -m robotpy init                                 #Creates robotpy files for the user to modify in the case that they 
 python3 -m pip install robotpy["commands2","phoenix5"]  #Installes robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
 
