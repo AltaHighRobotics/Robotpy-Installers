@@ -1,8 +1,8 @@
 sudo echo "Installing python"
 sleep 1
-apt install python3.12                              #In case the user forgot to install python when they are literally a python programmer
-apt install pip -y                                  #Installs the python package manager
-apt install zenity                                  #A file selector for the installer to use, might already be installed with linux distros like ubuntu
+sudo apt install python3.12                              #In case the user forgot to install python when they are literally a python programmer
+sudo apt install pip -y                                  #Installs the python package manager
+sudo apt install zenity                                  #A file selector for the installer to use, might already be installed with linux distros like ubuntu
 
 pip config set global.break-system-packages true    #Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
 
