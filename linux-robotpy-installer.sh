@@ -1,4 +1,4 @@
-echo "Installing python"
+sudo echo "Installing python"
 sleep 1
 apt install python3.12                              #In case the user forgot to install python when they are literally a python programmer
 apt install pip -y                                  #Installs the python package manager
@@ -19,7 +19,7 @@ echo "Reinstalling robotpy"
 if [ -z $uinput ] || [ $uinput == "Y" ] || [ $uinput == "y" ]; then     #Will check whether the use inputted nothing, "y", or "Y"
     python3 -m pip install robotpy                      #Installs the correct version of robotpy, newer versions do not include phoenix5
 else
-    python3 -m pip install robotpy=2024.3.2.2
+    python3 -m pip install robotpy==2024.3.2.2
 fi
 
 zenity --info --text="PLEASE SELECT YOUR PROGRAMMING FOLDER"    #Brings up a UI that gives intruction
@@ -29,13 +29,13 @@ python3 -m robotpy init                                 #Creates robotpy files f
 
 case "$uinput2" in
     D | d)      # If the user chose Drive Train )
-        python3 -m pip install robotpy["commands2","phoenix5"]  #Installes robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
+        python3 -m pip install robotpy["commands2","phoenix5"];;  #Installes robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
 
     S | s)      # If the user chose Swerve Bot )
-        python3 -m pip install robotpy["apriltag","commands2","navx","phoenix5","rev"]  #Installes robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
+        python3 -m pip install robotpy["apriltag","commands2","navx","phoenix5","rev"];;  #Installes robotpy's dependancies so that your code will work, installs packages: robotpy-commands-v2, robotpy[apriltag], robotpy[navx], robotpy[phoenix5], robotpy[rev]
 
     T | t)      # If the user chose Tank Bot )
-        echo "No current configuration for tank bot at the moment, you may have to install manually through the project.toml"
+        echo "No current configuration for tank bot at the moment, you may have to install manually through the project.toml";;
 esac
 pip config set global.break-system-packages false       #Sets external package system back to system default (don't want your files being unsecure, do we pookie? <3)
 
