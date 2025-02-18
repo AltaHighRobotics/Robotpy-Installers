@@ -8,10 +8,11 @@ print("  [2] Install and setup:\n Will install robotpy globally and also downloa
 print('  [3] Help:\n "I have NO idea what I\'m doing, give me guidance, my king, my lord"\n')
 uinput = input("What installation method would you like?: ")
 
+#These are to make the coe simpler, because that is better
 runpy = subprocess.check_call
 pyinstall = [sys.executable, "-m", "pip", "install", "[PACKAGE THAT IS TO BE INSTALLED]"]
-runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Unrestricted", "-Force"])
-runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Bypass", "-Force"])
+# runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Unrestricted", "-Force"])
+# runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Bypass", "-Force"])
 
 def DefaultFunc():
     pyinstall[4] = 'robotpy==2024.3.2.2'
@@ -52,6 +53,7 @@ def FullFunc():
     pyinstall[4] = 'robotpy[phoenix5]'
     runpy(pyinstall)
 
+
 def ToddlerTeach():
     print("\nWhat's up script kiddies, here's a extensive explanation on how each option works:\n\n")
     print("Option 1: Default install\n\tThis option is very useful for when you just need a quick and easy robotpy installation, it will install throughtout your machine so that you don't have to reinstall it on other repositories (projects), it will not download extra dependancies such as commands2 (package name: robotpy-commands-v2) and phoenix5 (package name robotpy[phoenix5]), which are the ones that we usually use/n")
@@ -78,7 +80,7 @@ match uinput:
     case _:
         print("You did not select an option, bruh")
 
-runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Restricted"])
+# runpy(["Set-ExecutionPolicy", "-Scope CurrentUser", "-ExecutionPolicy", "Restricted"])
 
 
 #THE DEPTHS OF UNUSED CODE
