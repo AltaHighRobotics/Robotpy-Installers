@@ -4,6 +4,8 @@ sudo apt install python3.12                              #In case the user forgo
 sudo apt install pip -y                                  #Installs the python package manager
 sudo apt install zenity                                  #A file selector for the installer to use, might already be installed with linux distros like ubuntu
 
+## COMPARE TEST ##
+
 pip config set global.break-system-packages true    #Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
 
 read -p "Do you want to install the newest version of robotpy? (recommended) [Y/n]: " uinput     # Gets the user input for version of robotpy
