@@ -7,6 +7,10 @@ sudo apt install zenity                                  #A file selector for th
 pip config set global.break-system-packages true    #Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
 
 read -p "Do you want to install the newest version of robotpy? (recommended) [Y/n]: " uinput     # Gets the user input for version of robotpy
+
+read -p "Do you want to install in a virtual environment or global enviornment? [V/g]: " EnvironmentChoice
+
+
 read -p "What robot are you going to be using? (D/S/T): " GRobotType         # Gets the user's robot type
 if [[ ! $GRobotType == *"D"* ]] && [[ ! $uinput2 == *"S"* ]] && [[ ! $uinput2 == *"T"* ]] && [[ ! $uinput2 == *"d"* ]] && [[ ! $uinput2 == *"s"* ]] && [[ ! $uinput2 == *"t"* ]]; then
     echo "Invalid input for robot selection, make sure you choose either Drive train, Swerve bot, or Tank bot"
