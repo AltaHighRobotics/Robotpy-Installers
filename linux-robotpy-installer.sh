@@ -7,8 +7,8 @@ sudo apt install zenity                                  #A file selector for th
 pip config set global.break-system-packages true    #Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
 
 read -p "Do you want to install the newest version of robotpy? (recommended) [Y/n]: " uinput     # Gets the user input for version of robotpy
-read -p "What robot are you going to be using? (D/S/T): " uinput2         # Gets the user's robot type
-if [[ ! $uinput2 == *"D"* ]] && [[ ! $uinput2 == *"S"* ]] && [[ ! $uinput2 == *"T"* ]] && [[ ! $uinput2 == *"d"* ]] && [[ ! $uinput2 == *"s"* ]] && [[ ! $uinput2 == *"t"* ]]; then
+read -p "What robot are you going to be using? (D/S/T): " GRobotType         # Gets the user's robot type
+if [[ ! $GRobotType == *"D"* ]] && [[ ! $uinput2 == *"S"* ]] && [[ ! $uinput2 == *"T"* ]] && [[ ! $uinput2 == *"d"* ]] && [[ ! $uinput2 == *"s"* ]] && [[ ! $uinput2 == *"t"* ]]; then
     echo "Invalid input for robot selection, make sure you choose either Drive train, Swerve bot, or Tank bot"
     exit;
 fi
@@ -27,7 +27,7 @@ UserDirectorySelection=$(zenity --file-selection --directory)   #Will direct the
 cd $UserDirectorySelection                                      #Puts user into the programming folder that they chose
 python3 -m robotpy init                                 #Creates robotpy files for the user to modify in the case that they 
 
-case "$uinput2" in
+case "$GRobotType" in
     D | d)      # If the user chose Drive Train )
         python3 -m pip install robotpy["commands2","phoenix5"];;  #Installes robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
 
