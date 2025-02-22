@@ -14,16 +14,13 @@ RUN THIS:
 This will install python3.12, robotpy (current ver or ver 2024.3.2.2), and all the packages needed for specific robots
 
 #### Error cases
-If you are a dummy-dum-dum and think that linux makes you smart, don't forget that you have to be in the SAME DIRECTORY as linux-robotpy-installer.sh
-
-Make sure you are running it as sudo because the program itself requires super user
-
-If you are still getting errors after testing your program, try uninstalling robotpy as you might have the latest version, then run it again
-
-If you use the command: `ls` and the installer is white, you need to run:
-```bash
-chmod +x linux-robotpy-installer.sh
-```
+- If you are a dummy-dum-dum and think that linux makes you smart, don't forget that you have to be in the SAME DIRECTORY as linux-robotpy-installer.sh
+- Make sure you are running it as sudo because the program itself requires super user
+- If you are still getting errors after testing your program, try uninstalling robotpy as you might have the latest version, then run it again
+- If you installed the virtual environment version, check that your terminal entry line has the `(.env)` prefix, if you don't see it, then run:
+    ```bash
+    source .env/bin/activate # .env is a folder stored in the robot programming folder, NOT the /robot/ directory
+    ```
 
 ###### Drive Train Packages:
 robotpy-commands-v2 and robotpy[phoenix5]

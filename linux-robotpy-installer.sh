@@ -26,6 +26,13 @@ if [[ -z $EnvironmentChoice ]] || [[ $EnvironmentChoice == 'y' ]] || [[ $Environ
     UserDirectorySelection=$(zenity --file-selection --directory)   # Will direct the user to select a directory where their robotpy files are located, ONE FOR EACH REPOSITORY       # cd $UserDirectorySelection
     cd $UserDirectorySelection                                      # Puts user into the programming folder that they chose
 
+    echo -e "MAKE SURE YOU ARE IN THE VIRTUAL ENVIRONMENT WHEN RUNNING ROBOTPY COMMANDS
+
+If you are not in the .env then you will not be able to access the virtual environments modules/commands such as \"robotpy test\" (unless you already have it installed globally)
+To enter the virtual environment, go to your robot folder and run:
+  source .env/bin/activate
+If this doesn't work, make sure you are in the right directory and that the .env folder exists" >> READ_ME_AFTER_INSTALLATION.txt
+
     echo -e "\nBeginning Installation"
     sleep 1
     echo "Reinstalling python venv"
@@ -54,6 +61,7 @@ if [[ -z $EnvironmentChoice ]] || [[ $EnvironmentChoice == 'y' ]] || [[ $Environ
         T | t)      # If the user chose Tank Bot )
             echo -e "No current configuration for tank bot at the moment, you will have to install manually through the project.toml or download from the \e]8;;https://github.com/AltaHighRobotics/Robotpy-Templates\aRobotpy Templates in Github\e]8;;\a";;
     esac
+    python3 -m robotpy init
     pip config set global.break-system-packages false                        # Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
     echo -e "\n\nInstallation Complete!\n"
 
