@@ -32,6 +32,7 @@ if [[ -z $EnvironmentChoice ]] || [[ $EnvironmentChoice == 'y' ]] || [[ $Environ
     echo -e "\nBeginning Installation"
     sleep 1
     echo "Reinstalling robotpy"
+    pip config set global.break-system-packages true                        # Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
     if [ -z $uinput ] || [ $uinput == "Y" ] || [ $uinput == "y" ]; then     # Will check whether the use inputted nothing, "y", or "Y"
         python3 -m pip install robotpy                                      # Installs the correct version of robotpy, newer versions do not include phoenix5
     else
@@ -47,6 +48,7 @@ if [[ -z $EnvironmentChoice ]] || [[ $EnvironmentChoice == 'y' ]] || [[ $Environ
         T | t)      # If the user chose Tank Bot )
             echo -e "No current configuration for tank bot at the moment, you will have to install manually through the project.toml or download from the \e]8;;https://github.com/AltaHighRobotics/Robotpy-Templates\aRobotpy Templates in Github\e]8;;\a";;
     esac
+    pip config set global.break-system-packages false                        # Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
     echo -e "\n\nInstallation Complete!\n"
 
 else
