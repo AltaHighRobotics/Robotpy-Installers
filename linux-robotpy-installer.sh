@@ -25,19 +25,25 @@ if [[ -z $EnvironmentChoice ]] || [[ $EnvironmentChoice == 'y' ]] || [[ $Environ
     zenity --info --text="PLEASE SELECT YOUR ROBOT'S FOLDER (make one now if you haven't already)"    # Brings up a UI that gives intruction
     UserDirectorySelection=$(zenity --file-selection --directory)   # Will direct the user to select a directory where their robotpy files are located, ONE FOR EACH REPOSITORY       # cd $UserDirectorySelection
     cd $UserDirectorySelection                                      # Puts user into the programming folder that they chose
-    
-    python3 -m venv .env            # Make virtual environment
-    source ./.env/bin/activate      # Enter virtual environment
-    
+
     echo -e "\nBeginning Installation"
     sleep 1
+    echo "Reinstalling python venv"
+    sleep 0.5
+    sudo apt install python3-venv   # Make sure python venv package can be used to create environment
+    mkdir robot                     # Where the robot's code will be stored
+    python3 -m venv .env            # Make virtual environment
+    source ./.env/bin/activate      # Enter virtual environment
+    cd robot                        # Enter robot dir while in virtual environment
     echo "Reinstalling robotpy"
+    sleep 0.5
     pip config set global.break-system-packages true                        # Will prevent your system from flagging robotpy as external packages, causing it to not install (makes a new file if not already made)
     if [ -z $uinput ] || [ $uinput == "Y" ] || [ $uinput == "y" ]; then     # Will check whether the use inputted nothing, "y", or "Y"
         python3 -m pip install robotpy                                      # Installs the correct version of robotpy, newer versions do not include phoenix5
     else
         python3 -m pip install robotpy==2024.3.2.2
     fi
+
     case "$GRobotType" in
         D | d)      # If the user chose Drive Train )
             python3 -m pip install robotpy["commands2","phoenix5"];;                            # Installs robotpy's dependancies so that your code will work, installs robotpy-commands-v2 and robotpy[phoenix5] (IDK phoenix5's package name is, but you can install it with that name)
