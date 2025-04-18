@@ -8,7 +8,7 @@ RUN THIS:
 
 `sudo ./linux-robotpy-installer.sh`
 
-This will install python3.12, robotpy==2024.3.2.2, robotpy-commands-v2 and robotpy[phoenix5] (as they are installed in the script repectiively)
+This will install python3.12, robotpy (latest or 2024 ver), robotpy-commands-v2 and robotpy[phoenix5] (as they are installed in the script respectively)
 
 #### Error cases
 If you are a dummy-dum-dum and think that linux makes you smart, don't forget that you have to be in the SAME DIRECTORY as linux-robotpy-installer.sh
